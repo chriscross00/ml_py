@@ -1,1 +1,18 @@
+ER tutorial
 https://towardsdatascience.com/named-entity-recognition-with-nltk-and-spacy-8c4a7d88e7da
+
+POS tags
+https://www.clips.uantwerpen.be/pages/mbsp-tags
+
+spaCy documentation
+https://spacy.io/usage/linguistic-features
+
+spaCy NER
+https://stackoverflow.com/questions/48200524/named-entity-recognition-in-spacy
+
+Shebang
+https://unix.stackexchange.com/questions/209646/how-to-activate-virtualenv-when-a-python-script-starts
+https://stackoverflow.com/questions/6908143/should-i-put-shebang-in-python-scripts-and-what-form-should-it-take
+https://stackoverflow.com/questions/17846908/proper-shebang-for-python-script/17846946
+https://www.python.org/dev/peps/pep-0486/
+
