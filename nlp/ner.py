@@ -2,8 +2,8 @@
 
 from bs4 import BeautifulSoup
 from collections import Counter
-from spacy import displacy
 
+import logging
 import re
 import requests
 import spacy
@@ -14,10 +14,11 @@ NLP = spacy.load('en')
 
 
 def main():
+    logging.basicConfig(level=logging.DEBUG)
     ny_bb = url_to_string('https://www.nytimes.com/2018/08/13/us/politics/peter-strzok-fired-fbi.html?hp&action=click&pgtype=Homepage&clickSource=story-heading&module=first-column-region&region=top-news&WT.nav=top-news')
     article = NLP(ny_bb)
 
-    displacy.render(NLP(str(sentences[19])), jupyter=True, style='ent')
+    print(tokenize(article))
 
 
 def url_to_string(url):
@@ -38,14 +39,6 @@ def tokenize(text):
     terms = [x.text for x in text.ents]
 
     return Counter(labels), Counter(terms).most_common(5)
-
-
-def display_text(text):
-
-    sentences = [x for x in text.sents]
-
-    return sentences
-    #displacy.render(NLP(str(sentences[19])), jupyter=True, style='ent')
 
 
 if __name__ == '__main__':
