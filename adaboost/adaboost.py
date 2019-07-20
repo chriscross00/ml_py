@@ -19,38 +19,39 @@ def load_data():
 	return X_train, X_test, y_train, y_test
 
 
-def a_boost(X_tr, X_te, y_tr, y_te):
-	clf = AdaBoostClassifier(n_estimators=50,
-							learning_rate=0.01,
-							random_state=0)
+def a_boost():
+	clf = AdaBoostClassifier(random_state=0)
 
 	param_grid = {'n_estimators': np.linspace(0, 100, 5),
 				  'learning_rate': np.linspace(0.01, 0.1, 11)}
 	
 	trained_model = GridSearchCV(clf, param_grid=param_grid, scoring='f1_micro', cv=5)
+	
 	print('hopefully the model finished...')
+	return trained_model
 
-"""
-def scoring(
 
-	pred = clf.predict(X_te)
+def scoring(model, X_tr, X_te, y_tr, y_te):
+
+	model.fit(X_tr, y_tr)
+	pred = model.predict(X_te)
 	score = metrics.accuracy_score(y_te, pred)
 	f1 = metrics.f1_score(y_te, pred, average='micro')
 
 	print(f'Standard score: {score}')
 	print(f'f1 score: {f1}')
 	print(pd.crosstab(pred, y_te, rownames=['Predicted'], colnames=['True']))
-"""
+
 
 def main():
 
 	print('Running model')
 	
 	X_train, X_test, y_train, y_test = load_data()
-	a_boost(X_train, X_test, y_train, y_test)
-	#scoring(X_train, X_test, y_train, y_test)
+	cv_model = a_boost()
+	scoring(cv_model, X_train, X_test, y_train, y_test)
 	
-	print('Done!')
+	print('Done!!')
 
 
 if __name__ == '__main__':
