@@ -56,3 +56,8 @@ def main():
 
 if __name__ == '__main__':
 	main()
+
+# To do:
+# Find out the return parameters of GridSearchCV
+# Implement appropriate return parameters of GridSearchCV
+# Fix scoring
