@@ -1,0 +1,2 @@
+https://towardsdatascience.com/clustering-algorithms-for-customer-segmentation-af637c6830ac
+https://towardsdatascience.com/the-5-clustering-algorithms-data-scientists-need-to-know-a36d136ef68
